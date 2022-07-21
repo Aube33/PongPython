@@ -44,14 +44,6 @@ def PongVersus(player1Color=(255,255,255), player2Color=(255,255,255)):
                 if key[pygame.K_s]:
                     if rect.y<screenHeight-self.rect.height:
                         rect=rect.move(0, self.vitesse)
-                '''
-                if y1>=512:
-                    if 0<=rect.y:
-                        rect=rect.move(0, -self.vitesse)
-                if y1<512:
-                    if rect.y<screenHeight-self.rect.height:
-                        rect=rect.move(0, self.vitesse)
-                '''
                 try:
                     rect.y=y1
                 except:
@@ -66,14 +58,6 @@ def PongVersus(player1Color=(255,255,255), player2Color=(255,255,255)):
                 if key[pygame.K_DOWN]:
                     if rect.y<screenHeight-self.rect.height:
                         rect=rect.move(0, self.vitesse)
-                '''
-                if y2>=512:
-                    if 0<=rect.y:
-                        rect=rect.move(0, -self.vitesse)
-                if y2<512:
-                    if rect.y<screenHeight-self.rect.height:
-                        rect=rect.move(0, self.vitesse)
-                '''
                 try:
                     rect.y=y2
                 except:
@@ -99,21 +83,6 @@ def PongVersus(player1Color=(255,255,255), player2Color=(255,255,255)):
         colorIndex=0
 
         sender="player1"
-        '''
-        def particule(self, quantity, rect):
-            if self.vitesse>0:
-                screenWidth, screenHeight = pygame.display.get_surface().get_size()
-
-                particle = pygame.Surface([13,13])
-                particle.fill((255,255,255))
-                particle_Rect = particle.get_rect()
-                particle_Rect.center=(rect.centerx+particle_Rect.width, rect.centery+particle_Rect.height)
-
-                particle_Rect.x+=self.x_speed*self.vitesse
-                particle_Rect.y+=self.y_speed*self.vitesse
-
-                screen.blit(particle, particle_Rect)
-           '''
 
         def reset(self, rect, lastPlayer="1"):
             screenWidth, screenHeight = pygame.display.get_surface().get_size()
@@ -140,8 +109,6 @@ def PongVersus(player1Color=(255,255,255), player2Color=(255,255,255)):
             self.image = pygame.transform.scale(self.image, (2*self.imageResize, 2*self.imageResize))
 
             screen.blit(self.image, rect)
-
-            #self.particule(1, rect)
 
         def upgradeSpeed(self, speed):
             if self.vitesse<=7:
